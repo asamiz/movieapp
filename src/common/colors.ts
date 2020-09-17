@@ -5,6 +5,7 @@ enum COLORS {
 	fountainBlue = '#5BC0BE',
 	aquamarine = '#6FFFE9',
 	white = '#FFFF',
+	sun = '#FCA311',
 }
 
 export { COLORS };
