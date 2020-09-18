@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { SearchScreen, HomeScreen, MovieScreen } from '../screens';
+import { SearchScreen, MovieScreen } from '../screens';
 import { SCREENS_OPTIONS, STACK_OPTIONS } from './options';
 
 type RootStackParamsList = {
@@ -14,11 +14,6 @@ const RootStack = createStackNavigator<RootStackParamsList>();
 
 const ScreensStack = () => (
 	<RootStack.Navigator screenOptions={STACK_OPTIONS} headerMode={'screen'}>
-		<RootStack.Screen
-			component={HomeScreen}
-			name={'HomeScreen'}
-			options={SCREENS_OPTIONS}
-		/>
 		<RootStack.Screen
 			component={SearchScreen}
 			name={'SearchScreen'}
