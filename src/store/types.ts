@@ -1,6 +1,6 @@
 export interface Movie {
-	title: String;
-	photo: String;
+	title: string;
+	photo: string;
 }
 
 export interface MoviesState {
