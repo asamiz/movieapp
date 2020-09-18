@@ -1,4 +1,4 @@
-interface Rates {
+export interface Rates {
 	Source: string;
 	Value: number;
 }

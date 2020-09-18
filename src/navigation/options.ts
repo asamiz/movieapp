@@ -1,8 +1,9 @@
 import { StackNavigationOptions } from '@react-navigation/stack';
 /** This file contains screen navigation options */
 import { COLORS } from '../common';
+import { calcWidth } from '../utils';
 
-const SCREENS_OPTIONS: StackNavigationOptions = {
+const SEARCH_OPTIONS: StackNavigationOptions = {
 	title: '',
 	headerStyle: {
 		backgroundColor: COLORS.oxfordBlue,
@@ -11,7 +12,6 @@ const SCREENS_OPTIONS: StackNavigationOptions = {
 		shadowOpacity: 0,
 	},
 	headerBackTitleVisible: false,
-	headerLeft: () => null,
 };
 
 const STACK_OPTIONS: StackNavigationOptions = {
@@ -20,4 +20,16 @@ const STACK_OPTIONS: StackNavigationOptions = {
 	},
 };
 
-export { SCREENS_OPTIONS, STACK_OPTIONS };
+const MOVIE_OPTIONS: StackNavigationOptions = {
+	title: '',
+	headerStyle: {
+		backgroundColor: COLORS.spaceCadet,
+		borderBottomWidth: 0,
+		elevation: 0,
+		shadowOpacity: 0,
+	},
+	headerBackTitleVisible: false,
+	headerTintColor: COLORS.sun,
+};
+
+export { SEARCH_OPTIONS, STACK_OPTIONS, MOVIE_OPTIONS };

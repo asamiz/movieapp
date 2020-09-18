@@ -1,13 +1,12 @@
 import React from 'react';
-import { Pressable, View } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { Pressable, View, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import { COLORS } from '../../common';
 import { calcHeight } from '../../utils';
 import styles from './styles';
 
 interface Props {
-	onChangeText: () => void;
+	onChangeText: (value: string) => void;
 	onPress: () => void;
 	value: string;
 }
@@ -16,6 +15,7 @@ const SearchBar = ({ onPress, onChangeText, value }: Props) => (
 	<View style={styles.container}>
 		<TextInput
 			style={styles.inputContainer}
+			placeholder={'Enter movie name ...'}
 			onChangeText={onChangeText}
 			value={value}
 		/>

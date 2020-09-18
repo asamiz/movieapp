@@ -6,10 +6,9 @@ import { MovieCard } from '../MovieCard';
 interface Props {
 	data: IMovie[];
 	ListEmptyComponent: ElementType;
-	ListHeader: ElementType;
 }
 
-const MoviesList = ({ data, ListEmptyComponent, ListHeader }: Props) => (
+const MoviesList = ({ data, ListEmptyComponent }: Props) => (
 	<FlatList
 		data={data}
 		renderItem={({ item }) => (
@@ -25,7 +24,7 @@ const MoviesList = ({ data, ListEmptyComponent, ListHeader }: Props) => (
 			/>
 		)}
 		ListEmptyComponent={<ListEmptyComponent />}
-		ListHeaderComponent={<ListHeader />}
+		showsVerticalScrollIndicator={false}
 	/>
 );
 
