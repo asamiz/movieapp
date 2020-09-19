@@ -5,7 +5,6 @@ import { SearchScreen, MovieScreen } from '../screens';
 import { SEARCH_OPTIONS, STACK_OPTIONS, MOVIE_OPTIONS } from './options';
 
 type RootStackParamsList = {
-	HomeScreen: undefined;
 	SearchScreen: undefined;
 	MovieScreen: undefined;
 };

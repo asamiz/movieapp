@@ -11,6 +11,7 @@ const MovieCard = ({
 	Poster,
 	Ratings,
 	Country,
+	imdbRating,
 	Rated,
 	Runtime,
 	onPress,
@@ -18,10 +19,7 @@ const MovieCard = ({
 	<Pressable style={styles.container} onPress={onPress}>
 		<View style={styles.contentContainer}>
 			<Text style={styles.title}>{Title}</Text>
-			<View style={styles.ratingContainer}>
-				<Rating rating={Ratings[0]?.Value} />
-				<Text style={styles.rating}>{'9.0'}</Text>
-			</View>
+			<Rating rating={parseFloat(imdbRating)} />
 			<Text style={styles.bodyText}>{`Released: ${Released}`}</Text>
 			<Text style={styles.bodyText}>{`${Runtime}  ${Rated}  ${Country}`}</Text>
 		</View>

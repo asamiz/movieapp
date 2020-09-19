@@ -14,6 +14,7 @@ export interface IMovie {
 	Plot?: string;
 	Actors?: string;
 	Director?: string;
+	imdbRating: string;
 	Genre?: string;
 	onPress: () => void;
 }

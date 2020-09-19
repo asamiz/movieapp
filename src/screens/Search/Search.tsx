@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Alert, Button, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Header, SearchBar, MoviesList } from '../../components';
 import EmptyScreen from './EmptyScreen';
 import styles from './styles';
@@ -18,10 +18,6 @@ const Search = () => {
 					onChangeText={(value) => setQuery(value)}
 				/>
 			</View>
-			{/* <Button
-				title={'Movie'}
-				onPress={() => navigation.navigate('MovieScreen')}
-			/> */}
 			<MoviesList
 				data={[]}
 				ListEmptyComponent={() => (

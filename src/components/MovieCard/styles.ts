@@ -37,17 +37,6 @@ const styles = StyleSheet.create({
 		fontFamily: FONTS.bold,
 		fontSize: calcFont(18),
 	},
-	rating: {
-		color: COLORS.sun,
-		fontFamily: FONTS.bold,
-		fontSize: calcFont(14),
-		marginStart: calcWidth(10),
-	},
-	ratingContainer: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		marginVertical: calcHeight(8),
-	},
 	bodyText: {
 		fontFamily: FONTS.medium,
 		marginBottom: calcHeight(8),
