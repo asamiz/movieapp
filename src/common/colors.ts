@@ -9,6 +9,7 @@ enum COLORS {
 	sun = '#FDB541',
 	black = '#000',
 	loblolly = '#C3CAD2',
+	hitGrey = '#566473',
 }
 
 export { COLORS };

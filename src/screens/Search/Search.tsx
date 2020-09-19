@@ -11,7 +11,6 @@ const Search = () => {
 	return (
 		<>
 			<View style={styles.container}>
-				<Header text={'Search'} />
 				<SearchBar
 					onPress={() => Alert.alert('Hello')}
 					value={query}

@@ -15,16 +15,12 @@ const SearchBar = ({ onPress, onChangeText, value }: Props) => (
 	<View style={styles.container}>
 		<TextInput
 			style={styles.inputContainer}
-			placeholder={'Enter movie name ...'}
+			placeholder={'Search Movies ...'}
 			onChangeText={onChangeText}
 			value={value}
 		/>
 		<Pressable style={styles.iconContianer} onPress={onPress}>
-			<Icon
-				name="magnifying-glass"
-				size={calcHeight(30)}
-				color={COLORS.oxfordBlue}
-			/>
+			<Icon name="magnifying-glass" size={calcHeight(30)} color={COLORS.sun} />
 		</Pressable>
 	</View>
 );
