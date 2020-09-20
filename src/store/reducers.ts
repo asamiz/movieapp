@@ -10,9 +10,15 @@ export function storingMovieReducer(
 ): MoviesState {
 	switch (action.type) {
 		case STORE_MOVIE_SUCCESS:
-			return {
-				movies: [...state, action.payload],
-			};
+			if (state.movies) {
+				if (state.movies?.some((item) => item.Title === action.payload.Title)) {
+					return state;
+				}
+				return Object.assign({}, state, {
+					movies: [...state!.movies!, action.payload],
+				});
+			}
+			return { movies: [action.payload] };
 		default:
 			return state;
 	}
