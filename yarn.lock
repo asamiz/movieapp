@@ -7932,6 +7932,11 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
+use-state-if-mounted@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/use-state-if-mounted/-/use-state-if-mounted-1.0.4.tgz#5ea9ba8702b88016a973b192a0617f4732cfcc4f"
+  integrity sha512-odkuB5IZxABvag46XZmUyY+FrienKt+6f2JAo52pvpU5C32K99EvADg1VxjIUaVbh5eHhOVQQ6q4wWm2WEZYyg==
+
 use-subscription@^1.0.0, use-subscription@^1.4.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.4.1.tgz#edcbcc220f1adb2dd4fa0b2f61b6cc308e620069"

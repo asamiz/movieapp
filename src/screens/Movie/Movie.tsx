@@ -1,63 +1,76 @@
 import React, { useEffect } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import {
+ ActivityIndicator, ScrollView, Text, View,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useRoute } from '@react-navigation/native';
-import { useDispatch } from 'react-redux';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { Header, RatingList } from '../../components';
-import { storeMovie } from '../../store/actions';
-import { DUMMY_IMAGE } from '../../common';
+import {
+	COLORS,
+	DUMMY_IMAGE,
+	IMovie,
+	IMovieDetailsResponse,
+} from '../../common';
 import styles from './styles';
-
-interface IData {
-	data?: any;
-}
+import { getMovieDetails } from '../../services';
 
 const Movie = () => {
+	const [movieData, setMovieData] = useStateIfMounted<IMovie>({});
 	const route = useRoute();
-	const { data }: IData = route.params!;
-	const dispatch = useDispatch();
+	const { id }: any = route.params!;
 
 	useEffect(() => {
-		dispatch(storeMovie(data));
-	}, []);
+		onLoad();
+	}, [movieData]);
 
-	const renderRow = (key: string) => (
+	const onLoad = async () => {
+		const data: IMovieDetailsResponse = await getMovieDetails(id);
+		setMovieData(data.movie);
+	};
+
+	const renderRow = (key: any) => (
 		<View style={styles.row}>
 			<Text style={styles.key}>{key}</Text>
 		</View>
 	);
 
-	const renderTitledSection = (header: string, body: string) => (
+	const renderTitledSection = (header: any, body: any) => (
 		<View style={styles.section}>
 			<Header text={header} textStyle={styles.header} />
 			<Text style={styles.body}>{body}</Text>
 		</View>
 	);
 
-	return (
+	return !Object.keys(movieData).length ? (
+		<ActivityIndicator style={styles.activityIndicator} color={COLORS.sun} />
+	) : (
 		<>
 			<View style={styles.topSection}>
 				<View style={styles.col}>
 					<FastImage
-						source={{ uri: data.Poster === 'N/A' ? DUMMY_IMAGE : data.Poster }}
+						source={{
+							uri:
+								movieData!.Poster === 'N/A' ? DUMMY_IMAGE : movieData!.Poster,
+						}}
 						style={styles.image}
 					/>
 				</View>
 				<View style={[styles.col, { alignItems: 'flex-start' }]}>
-					<Text style={styles.title}>{data.Title}</Text>
-					{renderRow(data.Released)}
-					{renderRow(data.Genre)}
-					{renderRow(data.Runtime)}
+					<Text style={styles.title}>{movieData!.Title}</Text>
+					{renderRow(movieData!.Released)}
+					{renderRow(movieData!.Genre)}
+					{renderRow(movieData!.Runtime)}
 				</View>
 			</View>
 			<ScrollView
 				contentContainerStyle={styles.contentContainer}
 				showsVerticalScrollIndicator={false}
 			>
-				<RatingList rates={data.Ratings} />
-				{renderTitledSection('Summary', data.Plot)}
-				{renderTitledSection('Director', data.Director)}
-				{renderTitledSection('Actors', data.Actors)}
+				<RatingList rates={movieData!.Ratings} />
+				{renderTitledSection('Summary', movieData!.Plot)}
+				{renderTitledSection('Director', movieData!.Director)}
+				{renderTitledSection('Actors', movieData!.Actors)}
 			</ScrollView>
 		</>
 	);

@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { COLORS, EMPTY_SCREEN_DATA, IRequestData } from '../../common';
+import {
+	COLORS,
+	EMPTY_SCREEN_DATA,
+	ISearchedMovieResponse,
+	STYLES,
+} from '../../common';
 import { SearchBar, MoviesList, Header } from '../../components';
-import { getMovies } from '../../services';
+import { getMoviesLits } from '../../services';
 import EmptyScreen from './EmptyScreen';
 import styles from './styles';
 
 const Search = () => {
 	const [query, setQuery] = useState('');
-	const [requestData, setRequestData] = useState<IRequestData>();
+	const [requestData, setRequestData] = useState<ISearchedMovieResponse>();
 	const [loading, setLoading] = useState(false);
 
 	const { movies }: any = useSelector((state) => state);
 
 	const onPressSearch = async () => {
 		setLoading(true);
-		const requestData: IRequestData = await getMovies(query);
+		const requestData: ISearchedMovieResponse = await getMoviesLits(query);
 		setRequestData(requestData);
 		setLoading(false);
 	};
@@ -24,7 +29,7 @@ const Search = () => {
 	const onChangeText = async (value: string) => {
 		setLoading(true);
 		setQuery(value);
-		const requestData: IRequestData = await getMovies(value);
+		const requestData: ISearchedMovieResponse = await getMoviesLits(value);
 		setRequestData(requestData);
 		setLoading(false);
 	};
@@ -60,11 +65,11 @@ const Search = () => {
 				/>
 			) : (
 				<MoviesList
-					data={requestData?.data! ? requestData?.data! : movies}
+					data={requestData?.movies! ? requestData?.movies! : movies}
 					ListEmptyComponent={() => renderListEmptyComponent()}
 					ListHeaderComponent={() => (
 						<Header
-							text={requestData?.data ? 'Search Result' : 'Recent Searches'}
+							text={requestData?.movies ? 'Search Result' : 'Recent Searches'}
 							containerStyle={styles.headerContainer}
 							textStyle={styles.header}
 						/>

@@ -4,12 +4,12 @@ import { IRates } from '../../common';
 import styles from './styles';
 
 interface Props {
-	rates: any;
+	rates?: any;
 }
 
 const RatingList = ({ rates }: Props) => (
 	<View style={styles.container}>
-		{rates.map((item: IRates, index: number) => (
+		{rates?.map((item: IRates, index: number) => (
 			<View key={item.Source + 1} style={styles.col}>
 				<Text style={styles.source}>{index === 0 ? 'IMDB' : item.Source}</Text>
 				<Text style={styles.value}>{item.Value}</Text>

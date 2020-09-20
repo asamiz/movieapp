@@ -40,6 +40,11 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: COLORS.sun,
 	},
+	activityIndicator: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	title: {
 		color: COLORS.white,
 		fontFamily: FONTS.bold,

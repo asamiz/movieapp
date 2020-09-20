@@ -13,7 +13,6 @@ export default async () => {
 			...config.params,
 			apikey: API_KEY,
 			type: 'movie',
-			plot: 'full',
 		},
 	}));
 

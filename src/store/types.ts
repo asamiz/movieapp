@@ -1,14 +1,14 @@
-import { IMovie } from '../common';
+import { ISearchedMovie } from '../common';
 
 export interface MoviesState {
-	movies: IMovie[];
+	movies: ISearchedMovie[];
 }
 
 export const STORE_MOVIE_SUCCESS = 'STORE_MOVIE_SUCCESS';
 
 interface MovieStoringAction {
 	type: typeof STORE_MOVIE_SUCCESS;
-	payload: IMovie;
+	payload: ISearchedMovie;
 }
 
 export type MovieStoringTypes = MovieStoringAction;

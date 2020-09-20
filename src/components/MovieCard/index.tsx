@@ -1,26 +1,16 @@
 import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { DUMMY_IMAGE, IMovie } from '../../common';
-import { Rating } from '../Rating';
+import { DUMMY_IMAGE, IShortMovie } from '../../common';
 import styles from './styles';
 
 const MovieCard = ({
-	Title,
-	Released,
-	Poster,
-	Country,
-	imdbRating,
-	Rated,
-	Runtime,
-	onPress,
-}: IMovie) => (
+ Title, Poster, imdbID, Year, onPress,
+}: IShortMovie) => (
 	<Pressable style={styles.container} onPress={onPress}>
 		<View style={styles.contentContainer}>
 			<Text style={styles.title}>{Title}</Text>
-			<Rating rating={parseFloat(imdbRating!)} />
-			<Text style={styles.bodyText}>{`Released: ${Released}`}</Text>
-			<Text style={styles.bodyText}>{`${Runtime}  ${Rated}  ${Country}`}</Text>
+			<Text style={styles.bodyText}>{`Released: ${Year}`}</Text>
 		</View>
 		<FastImage
 			source={{ uri: Poster === 'N/A' ? DUMMY_IMAGE : Poster }}
