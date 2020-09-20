@@ -1,17 +1,14 @@
-export interface Movie {
-	title: string;
-	photo: string;
-}
+import { IMovie } from '../common';
 
 export interface MoviesState {
-	movies: Movie[];
+	movies: IMovie[];
 }
 
 export const STORE_MOVIE_SUCCESS = 'STORE_MOVIE_SUCCESS';
 
 interface MovieStoringAction {
 	type: typeof STORE_MOVIE_SUCCESS;
-	payload: Movie;
+	payload: IMovie;
 }
 
 export type MovieStoringTypes = MovieStoringAction;

@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { COLORS, FONTS, STYLES } from '../../../common';
+import { COLORS, FONTS } from '../../../common';
 import { calcFont, calcHeight, calcWidth } from '../../../utils';
 
 const styles = StyleSheet.create({
 	container: {
-		...STYLES.globalPadding,
+		paddingHorizontal: calcWidth(20),
 	},
 	contentContainer: {
 		justifyContent: 'center',
@@ -20,18 +20,6 @@ const styles = StyleSheet.create({
 	},
 	iconContainer: {
 		marginBottom: calcHeight(30),
-	},
-	headerContainer: {
-		marginTop: calcHeight(20),
-		borderBottomWidth: 2,
-		borderBottomColor: COLORS.sun,
-		width: calcWidth(158),
-		paddingBottom: calcHeight(10),
-	},
-	header: {
-		fontSize: calcFont(18),
-		color: COLORS.white,
-		fontFamily: FONTS.bold,
 	},
 });
 

@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Header = ({ text, containerStyle, textStyle }: Props) => (
-	<View style={[styles.container, containerStyle]}>
+	<View style={containerStyle}>
 		<Text style={[styles.text, textStyle]}>{text}</Text>
 	</View>
 );
