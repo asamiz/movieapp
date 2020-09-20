@@ -21,6 +21,14 @@ const Search = () => {
 		setLoading(false);
 	};
 
+	const onChangeText = async (value: string) => {
+		setLoading(true);
+		setQuery(value);
+		const requestData: IRequestData = await getMovies(value);
+		setRequestData(requestData);
+		setLoading(false);
+	};
+
 	const renderListEmptyComponent = () =>
 		requestData?.error ? (
 			<EmptyScreen
@@ -42,7 +50,7 @@ const Search = () => {
 				<SearchBar
 					onPress={() => onPressSearch()}
 					value={query}
-					onChangeText={(value) => setQuery(value)}
+					onChangeText={(value) => onChangeText(value)}
 				/>
 			</View>
 			{loading ? (
