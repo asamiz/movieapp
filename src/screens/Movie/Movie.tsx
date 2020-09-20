@@ -67,7 +67,7 @@ const Movie = () => {
 				contentContainerStyle={styles.contentContainer}
 				showsVerticalScrollIndicator={false}
 			>
-				<RatingList rates={movieData!.Ratings} />
+				{movieData!.Ratings && <RatingList rates={movieData!.Ratings} />}
 				{renderTitledSection('Summary', movieData!.Plot)}
 				{renderTitledSection('Director', movieData!.Director)}
 				{renderTitledSection('Actors', movieData!.Actors)}

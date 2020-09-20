@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 	},
 	bodyText: {
 		fontFamily: FONTS.medium,
-		marginBottom: calcHeight(8),
+		marginTop: calcHeight(12),
 		fontSize: calcFont(12),
 		color: COLORS.white,
 	},
