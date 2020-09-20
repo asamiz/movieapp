@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { IMovie } from '../../common';
+import { DUMMY_IMAGE, IMovie } from '../../common';
 import { Rating } from '../Rating';
 import styles from './styles';
 
@@ -23,7 +23,7 @@ const MovieCard = ({
 			<Text style={styles.bodyText}>{`${Runtime}  ${Rated}  ${Country}`}</Text>
 		</View>
 		<FastImage
-			source={{ uri: Poster }}
+			source={{ uri: Poster === 'N/A' ? DUMMY_IMAGE : Poster }}
 			resizeMode={'stretch'}
 			style={styles.image}
 		/>
