@@ -65,7 +65,9 @@ const Search = () => {
 				/>
 			) : (
 				<MoviesList
-					data={requestData?.movies! ? requestData?.movies! : movies}
+					data={
+						requestData?.movies! && query !== '' ? requestData?.movies! : movies
+					}
 					ListEmptyComponent={() => renderListEmptyComponent()}
 					ListHeaderComponent={() => (
 						<Header
