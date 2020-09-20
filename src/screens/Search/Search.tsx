@@ -34,7 +34,7 @@ const Search = () => {
 	};
 
 	const renderListEmptyComponent = () =>
-		requestData?.error ? (
+		requestData?.error && query !== '' ? (
 			<EmptyScreen
 				iconName={EMPTY_SCREEN_DATA.search.icon}
 				bodyHeader={EMPTY_SCREEN_DATA.search.header}
@@ -70,7 +70,7 @@ const Search = () => {
 					ListEmptyComponent={() => renderListEmptyComponent()}
 					ListHeaderComponent={() => (
 						<Header
-							text={requestData?.movies ? 'Search Result' : 'Recent Searches'}
+							text={requestData?.movies ? 'Search Results' : 'Recent Searches'}
 							containerStyle={styles.headerContainer}
 							textStyle={styles.header}
 						/>

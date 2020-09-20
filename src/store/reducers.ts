@@ -15,7 +15,7 @@ export function storingMovieReducer(
 					return state;
 				}
 				return Object.assign({}, state, {
-					movies: [...state!.movies!, action.payload],
+					movies: [action.payload, ...state!.movies!],
 				});
 			}
 			return { movies: [action.payload] };

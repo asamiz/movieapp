@@ -15,7 +15,7 @@ const SearchBar = ({ onPress, onChangeText, value }: Props) => (
 	<View style={styles.container}>
 		<TextInput
 			style={styles.inputContainer}
-			placeholder={'Search Movies ...'}
+			placeholder={'Enter Movie Name ...'}
 			onChangeText={onChangeText}
 			placeholderTextColor={COLORS.sun}
 			value={value}
