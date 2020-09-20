@@ -5,7 +5,6 @@ import {
 	COLORS,
 	EMPTY_SCREEN_DATA,
 	ISearchedMovieResponse,
-	STYLES,
 } from '../../common';
 import { SearchBar, MoviesList, Header } from '../../components';
 import { getMoviesLits } from '../../services';

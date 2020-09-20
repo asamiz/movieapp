@@ -5,7 +5,7 @@ import { DUMMY_IMAGE, IShortMovie } from '../../common';
 import styles from './styles';
 
 const MovieCard = ({
- Title, Poster, imdbID, Year, onPress,
+ Title, Poster, Year, onPress,
 }: IShortMovie) => (
 	<Pressable style={styles.container} onPress={onPress}>
 		<View style={styles.contentContainer}>

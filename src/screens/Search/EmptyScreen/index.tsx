@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { COLORS, FONTS } from '../../../common';
-import { Header } from '../../../components';
 import { calcHeight } from '../../../utils';
 import styles from './styles';
 
