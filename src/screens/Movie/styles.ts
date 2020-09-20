@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
 		paddingBottom: calcHeight(20),
 		paddingTop: calcHeight(10),
 	},
+	contentContainer: {
+		paddingBottom: calcHeight(40),
+	},
 	col: {
 		justifyContent: 'center',
 		alignItems: 'center',

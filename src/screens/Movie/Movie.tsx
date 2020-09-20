@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useRoute } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 import { Header, RatingList } from '../../components';
+import { storeMovie } from '../../store/actions';
+import { DUMMY_IMAGE } from '../../common';
 import styles from './styles';
 
 interface IData {
@@ -12,6 +15,11 @@ interface IData {
 const Movie = () => {
 	const route = useRoute();
 	const { data }: IData = route.params!;
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(storeMovie(data));
+	}, []);
 
 	const renderRow = (key: string) => (
 		<View style={styles.row}>
@@ -30,7 +38,10 @@ const Movie = () => {
 		<>
 			<View style={styles.topSection}>
 				<View style={styles.col}>
-					<FastImage source={{ uri: data.Poster }} style={styles.image} />
+					<FastImage
+						source={{ uri: data.Poster === 'N/A' ? DUMMY_IMAGE : data.Poster }}
+						style={styles.image}
+					/>
 				</View>
 				<View style={[styles.col, { alignItems: 'flex-start' }]}>
 					<Text style={styles.title}>{data.Title}</Text>
@@ -39,7 +50,10 @@ const Movie = () => {
 					{renderRow(data.Runtime)}
 				</View>
 			</View>
-			<ScrollView>
+			<ScrollView
+				contentContainerStyle={styles.contentContainer}
+				showsVerticalScrollIndicator={false}
+			>
 				<RatingList rates={data.Ratings} />
 				{renderTitledSection('Summary', data.Plot)}
 				{renderTitledSection('Director', data.Director)}

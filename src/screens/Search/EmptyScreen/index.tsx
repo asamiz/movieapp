@@ -10,20 +10,10 @@ interface Props {
 	bodyHeader: string;
 	bodyText: string;
 	iconName: string;
-	header: string;
 }
 
-const EmptyScreen = ({
- bodyHeader, bodyText, iconName, header,
-}: Props) => (
+const EmptyScreen = ({ bodyHeader, bodyText, iconName }: Props) => (
 	<View style={styles.container}>
-		{header && (
-			<Header
-				text={'Recent Searches'}
-				containerStyle={styles.headerContainer}
-				textStyle={styles.header}
-			/>
-		)}
 		<View style={styles.contentContainer}>
 			<Icon
 				name={iconName}

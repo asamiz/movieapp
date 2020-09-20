@@ -9,7 +9,6 @@ const MovieCard = ({
 	Title,
 	Released,
 	Poster,
-	Ratings,
 	Country,
 	imdbRating,
 	Rated,
@@ -19,7 +18,7 @@ const MovieCard = ({
 	<Pressable style={styles.container} onPress={onPress}>
 		<View style={styles.contentContainer}>
 			<Text style={styles.title}>{Title}</Text>
-			<Rating rating={parseFloat(imdbRating)} />
+			<Rating rating={parseFloat(imdbRating!)} />
 			<Text style={styles.bodyText}>{`Released: ${Released}`}</Text>
 			<Text style={styles.bodyText}>{`${Runtime}  ${Rated}  ${Country}`}</Text>
 		</View>

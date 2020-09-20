@@ -1,32 +1,65 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
-import { Header, SearchBar, MoviesList } from '../../components';
+import { ActivityIndicator, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { EMPTY_SCREEN_DATA, IRequestData } from '../../common';
+import { SearchBar, MoviesList, Header } from '../../components';
+import { getMovies } from '../../services';
 import EmptyScreen from './EmptyScreen';
 import styles from './styles';
 
 const Search = () => {
 	const [query, setQuery] = useState('');
-	const navigation = useNavigation();
+	const [requestData, setRequestData] = useState<IRequestData>();
+	const [loading, setLoading] = useState(false);
+
+	const { movies }: any = useSelector((state) => state);
+
+	const onPressSearch = async () => {
+		setLoading(true);
+		const requestData: IRequestData = await getMovies(query);
+		setRequestData(requestData);
+		setLoading(false);
+	};
+
+	const renderListEmptyComponent = () =>
+		requestData?.error ? (
+			<EmptyScreen
+				iconName={EMPTY_SCREEN_DATA.search.icon}
+				bodyHeader={EMPTY_SCREEN_DATA.search.header}
+				bodyText={EMPTY_SCREEN_DATA.search.body}
+			/>
+		) : (
+			<EmptyScreen
+				iconName={EMPTY_SCREEN_DATA.history.icon}
+				bodyHeader={EMPTY_SCREEN_DATA.history.header}
+				bodyText={EMPTY_SCREEN_DATA.history.body}
+			/>
+		);
+
 	return (
 		<>
 			<View style={styles.container}>
 				<SearchBar
-					onPress={() => Alert.alert('Hello')}
+					onPress={() => onPressSearch()}
 					value={query}
 					onChangeText={(value) => setQuery(value)}
 				/>
 			</View>
-			<MoviesList
-				data={[]}
-				ListEmptyComponent={() => (
-					<EmptyScreen
-						iconName={'emoticon-sad-outline'}
-						bodyHeader={`There is no result for "${query}"`}
-						bodyText={'Please make sure you entered a proper search value.'}
-					/>
-				)}
-			/>
+			{loading ? (
+				<ActivityIndicator style={styles.activityIndicator} />
+			) : (
+				<MoviesList
+					data={requestData?.data! ? requestData?.data! : movies}
+					ListEmptyComponent={() => renderListEmptyComponent()}
+					ListHeaderComponent={() => (
+						<Header
+							text={requestData?.data ? 'Search Result' : 'Recent Searches'}
+							containerStyle={styles.headerContainer}
+							textStyle={styles.header}
+						/>
+					)}
+				/>
+			)}
 		</>
 	);
 };
