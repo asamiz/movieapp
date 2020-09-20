@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { EMPTY_SCREEN_DATA, IRequestData } from '../../common';
+import { COLORS, EMPTY_SCREEN_DATA, IRequestData } from '../../common';
 import { SearchBar, MoviesList, Header } from '../../components';
 import { getMovies } from '../../services';
 import EmptyScreen from './EmptyScreen';
@@ -46,7 +46,10 @@ const Search = () => {
 				/>
 			</View>
 			{loading ? (
-				<ActivityIndicator style={styles.activityIndicator} />
+				<ActivityIndicator
+					style={styles.activityIndicator}
+					color={COLORS.sun}
+				/>
 			) : (
 				<MoviesList
 					data={requestData?.data! ? requestData?.data! : movies}
