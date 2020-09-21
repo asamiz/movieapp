@@ -45,6 +45,12 @@ Second run the following command to install project dependencies:
 
 `yarn install`
 
+**in IOS**
+
+You will need to make one more step to install pods dependencies, run the following command in the project directory:
+
+- `cd ios && pod install`
+
 ### Run on Device
 
 - run `yarn android` or `yarn ios` to run on device or emulator.
