@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: COLORS.spaceCadet,
+		flexGrow: 1,
 	},
 	source: {
 		fontFamily: FONTS.bold,
