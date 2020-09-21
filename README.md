@@ -88,6 +88,8 @@ You will need to make one more step to install pods dependencies, run the follow
 		"use-state-if-mounted": "^1.0.4" // to prevent memory leakage after component un mount
 ```
 
+Also I am using `eslint` and prettier for better code formatting alongside [husky hooks](https://github.com/typicode/husky) to apply linting and formatting before each commit
+
 ### Future Improvements
 
 - Complete all the unit tests for all app components and add more unit tests to the existing ones.
