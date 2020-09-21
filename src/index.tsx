@@ -11,7 +11,7 @@ const App: React.FC<{}> = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			SplashScreen.hide();
-		}, 500);
+		}, 800);
 	}, []);
 
 	return (
