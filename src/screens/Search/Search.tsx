@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import {
@@ -17,6 +17,11 @@ const Search = () => {
 	const [loading, setLoading] = useState(false);
 
 	const { movies }: any = useSelector((state) => state);
+
+	// To reset the request data before the next search
+	useEffect(() => {
+		setRequestData([]);
+	}, [query]);
 
 	const onPressSearch = async () => {
 		setLoading(true);
@@ -70,7 +75,11 @@ const Search = () => {
 					ListEmptyComponent={() => renderListEmptyComponent()}
 					ListHeaderComponent={() => (
 						<Header
-							text={requestData?.movies ? 'Search Results' : 'Recent Searches'}
+							text={
+								requestData?.movies && query !== ''
+									? 'Search Results'
+									: 'Recent Searches'
+							}
 							containerStyle={styles.headerContainer}
 							textStyle={styles.header}
 						/>
