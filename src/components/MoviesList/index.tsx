@@ -28,6 +28,7 @@ const MoviesList = ({
 
 	return (
 		<FlatList
+			testID={'app-movie-list'}
 			data={data}
 			keyboardShouldPersistTaps={'always'}
 			renderItem={({ item }) => (

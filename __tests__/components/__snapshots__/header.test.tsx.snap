@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Header Unit Testing should render correctly 1`] = `
+<View
+  testID="app-header-container"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#FFFF",
+          "fontFamily": "Montserrat-Bold",
+          "fontSize": 44.5,
+        },
+        undefined,
+      ]
+    }
+    testID="app-header-text"
+  >
+    CARA CARE
+  </Text>
+</View>
+`;

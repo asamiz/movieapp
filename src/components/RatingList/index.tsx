@@ -8,7 +8,7 @@ interface Props {
 }
 
 const RatingList = ({ rates }: Props) => (
-	<View style={styles.container}>
+	<View style={styles.container} testID={'app-rating-list'}>
 		{rates?.map((item: IRates, index: number) => (
 			<View key={item.Source + 1} style={styles.col}>
 				<Text style={styles.source}>{index === 0 ? 'IMDB' : item.Source}</Text>

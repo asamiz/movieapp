@@ -7,7 +7,11 @@ import styles from './styles';
 const MovieCard = ({
  Title, Poster, Year, onPress,
 }: IShortMovie) => (
-	<Pressable style={styles.container} onPress={onPress}>
+	<Pressable
+		style={styles.container}
+		onPress={onPress}
+		testID={'app-movie-card'}
+	>
 		<View style={styles.contentContainer}>
 			<Text style={styles.title}>{Title}</Text>
 			<Text style={styles.bodyText}>{`Released: ${Year}`}</Text>

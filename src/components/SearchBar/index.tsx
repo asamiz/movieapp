@@ -14,6 +14,7 @@ interface Props {
 const SearchBar = ({ onPress, onChangeText, value }: Props) => (
 	<View style={styles.container}>
 		<TextInput
+			testID={'app-search-input'}
 			style={styles.inputContainer}
 			placeholder={'Enter Movie Name ...'}
 			onChangeText={onChangeText}
