@@ -62,30 +62,28 @@ You will need to make one more step to install pods dependencies, run the follow
 ### Used dependencies
 
 ```json
-		"@react-native-community/async-storage": "^1.12.0",  // community async storage
-		"@react-native-community/masked-view": "^0.1.10",
-		"@react-navigation/native": "^5.7.3", // react navigation core
-		"@react-navigation/stack": "^5.9.0", //to create navigation stack
-		"axios": "^0.20.0", // to make async API calls and use interceptors
-		"formik": "^2.1.5",
-		"react": "16.13.1",
-		"react-dom": "^16.13.1",
-		"react-native": "0.63.2",
-		"react-native-fast-image": "^8.3.2", // to use the cache functionality for images
-		"react-native-gesture-handler": "^1.8.0",
-		"react-native-reanimated": "^1.13.0",
-		"react-native-responsive-screen": "^1.4.1", // to build utils functions to make design responsive
-		"react-native-safe-area-context": "^3.1.7",
-		"react-native-screens": "^2.10.1",
-		"react-native-splash-screen": "^3.2.0", // to build a native splash screen for both IOS and android
-		"react-native-star-rating": "^1.1.0",
-		"react-native-vector-icons": "^7.1.0", // to import app icons
-		"react-redux": "^7.2.1", // redux support for react
-		"redux": "^4.0.5", // state management
-		"redux-logger": "^3.0.6",  // to log redux actions and store state
-		"redux-persist": "^6.0.0",  // to persist data in the async storage using redux
-		"redux-thunk": "^2.3.0", // to handle async state update in redux reducers
-		"use-state-if-mounted": "^1.0.4" // to prevent memory leakage after component un mount
+"@react-native-community/async-storage": "^1.12.0",  // community async storage
+"@react-native-community/masked-view": "^0.1.10",
+"@react-navigation/native": "^5.7.3", // react navigation core
+"@react-navigation/stack": "^5.9.0", //to create navigation stack
+"axios": "^0.20.0", // to make async API calls and use interceptors
+"react": "16.13.1",
+"react-dom": "^16.13.1",
+"react-native": "0.63.2",
+"react-native-fast-image": "^8.3.2", // to use the cache functionality for images
+"react-native-gesture-handler": "^1.8.0",
+"react-native-reanimated": "^1.13.0",
+"react-native-responsive-screen": "^1.4.1", // to build utils functions to make design responsive
+"react-native-safe-area-context": "^3.1.7",
+"react-native-screens": "^2.10.1",
+"react-native-splash-screen": "^3.2.0", // to build a native splash screen for both IOS and android
+"react-native-vector-icons": "^7.1.0", // to import app icons
+"react-redux": "^7.2.1", // redux support for react
+"redux": "^4.0.5", // state management
+"redux-logger": "^3.0.6",  // to log redux actions and store state
+"redux-persist": "^6.0.0",  // to persist data in the async storage using redux
+"redux-thunk": "^2.3.0", // to handle async state update in redux reducers
+"use-state-if-mounted": "^1.0.4" // to prevent memory leakage after component un mount
 ```
 
 Also I am using `eslint` and prettier for better code formatting alongside [husky hooks](https://github.com/typicode/husky) to apply linting and formatting before each commit
