@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import _ from 'lodash';
 import {
 	COLORS,
 	EMPTY_SCREEN_DATA,
@@ -18,6 +19,16 @@ const Search = () => {
 
 	const { movies }: any = useSelector((state) => state);
 
+	const handleApiRequest: (value: string) => void = useCallback(
+		_.debounce(async (value) => {
+			setLoading(true);
+			const requestData: ISearchedMovieResponse = await getMoviesLits(value);
+			setRequestData(requestData);
+			setLoading(false);
+		}, 1300),
+		[],
+	);
+
 	// To reset the request data before the next search
 	useEffect(() => {
 		setRequestData([]);
@@ -31,11 +42,8 @@ const Search = () => {
 	};
 
 	const onChangeText = async (value: string) => {
-		setLoading(true);
 		setQuery(value);
-		const requestData: ISearchedMovieResponse = await getMoviesLits(value);
-		setRequestData(requestData);
-		setLoading(false);
+		handleApiRequest(value);
 	};
 
 	const renderListEmptyComponent = () =>
