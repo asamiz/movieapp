@@ -79,6 +79,7 @@ You will need to make one more step to install pods dependencies, run the follow
 "react-native-splash-screen": "^3.2.0", // to build a native splash screen for both IOS and android
 "react-native-vector-icons": "^7.1.0", // to import app icons
 "react-redux": "^7.2.1", // redux support for react
+"lodash":"4.17.20",
 "redux": "^4.0.5", // state management
 "redux-logger": "^3.0.6",  // to log redux actions and store state
 "redux-persist": "^6.0.0",  // to persist data in the async storage using redux
